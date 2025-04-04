@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ST10395938_CLDV6211_POEPart1.Models.Venues>
+
+@{
+    ViewData["Title"] = "List of Venues";
+}
+
+<h1>LIST OF VENUES</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueLocation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueCapacity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImageUrl)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueLocation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueCapacity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImageUrl)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-venueid="@item.VenueId">Edit</a> |
+                <a asp-action="Delete" asp-route-venueid="@item.VenueId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

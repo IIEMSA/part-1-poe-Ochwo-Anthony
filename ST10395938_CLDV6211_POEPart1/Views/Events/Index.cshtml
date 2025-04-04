@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ST10395938_CLDV6211_POEPart1.Models.Events>
+
+@{
+    ViewData["Title"] = "List of Events";
+}
+
+<h1>LIST OF EVENTS</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EventName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EventDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.VenueId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventDescription)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Venues.VenueName)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-eventId="@item.EventId">Edit</a> |                
+                <a asp-action="Delete" asp-route-eventId="@item.EventId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

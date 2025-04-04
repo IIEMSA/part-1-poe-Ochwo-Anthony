@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "EventEase - Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to EventEase</h1>
+    <p>Your one-stop solution for managing events, venues, and bookings.</p>
+
+    <div class="mt-4">
+        <!-- Button to go to Venues Index page -->
+        <a href="@Url.Action("Index", "Venues")" class="btn btn-primary btn-lg">View Venues</a>
+    </div>
+
+    <div class="mt-3">
+        <!-- Button to go to Events Index page -->
+        <a href="@Url.Action("Index", "Events")" class="btn btn-success btn-lg">View Events</a>
+    </div>
+
+    <div class="mt-3">
+        <!-- Button to go to Bookings Index page -->
+        <a href="@Url.Action("Index", "Bookings")" class="btn btn-warning btn-lg">View Bookings</a>
+    </div>
+</div>
