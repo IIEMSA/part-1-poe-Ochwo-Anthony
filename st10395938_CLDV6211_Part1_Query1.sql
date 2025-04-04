@@ -1,5 +1,5 @@
 --CREATE 'VENUE' TABLE
-CREATE TABLE Venue (
+CREATE TABLE Venues (
     VenueId INT IDENTITY(1,1) PRIMARY KEY,
     VenueName VARCHAR(255) NOT NULL,
     Location VARCHAR(255) NOT NULL,
@@ -8,23 +8,23 @@ CREATE TABLE Venue (
 );
 
 --CREATE 'EVENT' TABLE
-CREATE TABLE Event (
+CREATE TABLE Events (
     EventId INT IDENTITY(1,1) PRIMARY KEY,
     EventName VARCHAR(255) NOT NULL,
     EventDate DATE NOT NULL,
     Description VARCHAR(MAX),
     VenueId INT NOT NULL,
-    CONSTRAINT FK_Event_Venues FOREIGN KEY (VenueId) REFERENCES Venue(VenueId)
+    CONSTRAINT FK_Event_Venues FOREIGN KEY (VenueId) REFERENCES Venues(VenueId)
 );
 
 --CREATE 'BOOKING' TABLE
-CREATE TABLE Booking (
+CREATE TABLE Bookings (
     BookingId INT IDENTITY(1,1) PRIMARY KEY,
     EventId INT NOT NULL,
     VenueId INT NOT NULL,
     BookingDate DATE NOT NULL,
-    CONSTRAINT FK_Booking_Events FOREIGN KEY (EventId) REFERENCES Event(EventId),
-    CONSTRAINT FK_Booking_Venues FOREIGN KEY (VenueId) REFERENCES Venue(VenueId)
+    CONSTRAINT FK_Booking_Events FOREIGN KEY (EventId) REFERENCES Events(EventId),
+    CONSTRAINT FK_Booking_Venues FOREIGN KEY (VenueId) REFERENCES Venues(VenueId)
 );
 
 -- SAMPLE DATA 'VENUE'
