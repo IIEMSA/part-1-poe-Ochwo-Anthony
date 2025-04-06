@@ -130,5 +130,24 @@ namespace ST10395938_CLDV6211_POEPart1.Controllers
             return View(eventItem);
         }
 
+        public async Task<IActionResult> Details(int? eventId)
+        {
+            if (eventId == null)
+            {
+                return NotFound();
+            }
+
+            var events = await _context.Events
+                .Include(f => f.Venues)   // Include related venue data               
+                .FirstOrDefaultAsync(b => b.EventId == eventId);
+
+            if (events == null)
+            {
+                return NotFound();
+            }
+
+            return View(events);  // Return the booking details to the view
+        }
+
     }
 }

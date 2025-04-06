@@ -40,10 +40,11 @@
                 @Html.DisplayFor(modelItem => item.VenueCapacity)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImageUrl)
+                 <a href="@item.ImageUrl" target="_blank">@item.ImageUrl</a>
             </td>
             <td>
                 <a asp-action="Edit" asp-route-venueid="@item.VenueId">Edit</a> |
+                <a asp-action="Details" asp-route-venueid="@item.VenueId">Details</a> |
                 <a asp-action="Delete" asp-route-venueid="@item.VenueId">Delete</a>
             </td>
         </tr>

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ST10395938_CLDV6211_POEPart1.Models;
 
@@ -34,6 +35,9 @@ namespace ST10395938_CLDV6211_POEPart1.Controllers
         {
             if (ModelState.IsValid)
             {
+                bookings.Venues = null;  // Prevent EF from thinking this is a new Venue object
+                bookings.Events = null;
+
                 _context.Add(bookings);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
@@ -97,5 +101,6 @@ namespace ST10395938_CLDV6211_POEPart1.Controllers
 
             return View(booking);  // Return the booking details to the view
         }
+
     }
 }
