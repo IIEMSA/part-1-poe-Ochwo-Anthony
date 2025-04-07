@@ -6,6 +6,7 @@ namespace ST10395938_CLDV6211_POEPart1.Controllers
 {
     public class VenuesController : Controller
     {
+        // The code was adapted from "MVC, Entity Framework & SQL Azure" by Adeol Adisa
         private readonly ApplicationDbContext _context;
 
         public VenuesController(ApplicationDbContext context)

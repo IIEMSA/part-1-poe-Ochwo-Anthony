@@ -4,6 +4,7 @@ namespace ST10395938_CLDV6211_POEPart1.Models
 {
     public class ApplicationDbContext : DbContext
     {
+        // The code was adapted from "MVC, Entity Framework & SQL Azure" by Adeol Adisa
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
         { 
         }
